@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>常见问题 - NexT 使用文档</title>
+  <title>常见问题 - 壹金科技</title>
   <link href="https://fonts.googleapis.com/css?family=Monda:400,700|PT+Mono:300,300italic,400,400italic,700,700italic" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
@@ -21,32 +21,33 @@
     <nav class="navbar navbar-default navbar-static-top" id="nav">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">SAFE</a>
+        <a class="navbar-brand" href="/">1fintech.com 壹金科技</a>
       </div>
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav pull-right">
           <li>
+            <a href="https://explorer.safe.io">壹金链</a>
+          </li>
+          <li>
             <a href="/getting-started.html">关于我们</a>
           </li>
           <li>
-            <a href="/theme-settings.html">经济技术白皮书</a>
-          </li>
-          <li>
-            <a href="/third-party-services.html">合作伙伴</a>
+            <a href="http://www.jinse.com/member/25059">方案专栏</a>
           </li>
           <li>
             <a href="/faqs.html">常见问题</a>
           </li>
         </ul>
       </div>
+
     </div>
   </nav>
 
 
   <h1 class="next-docs-header">
     <div class="container">
-  <i class="fa-life-ring fa"></i> 关于安链
+  <i class="fa-life-ring fa"></i> 关于壹金
     </div>
   </h1>
   </header>
@@ -57,278 +58,162 @@
       <div class="row">
         <div class="col-md-9 next-docs-section" role="main">
   <p>
-    这里罗列的是 NexT Issues 中用户提问最频繁的问题。若你在这里无法找到问题的答案，
-    请访问 <a href="https://github.com/iissnan/hexo-theme-next/issues" target="_blank">NexT Issues</a>，
-    提交你的问题。
+    这里罗列的是 关于壹金链 用户提问最频繁的问题。若你在这里无法找到问题的答案，
+    请访问 <a href="https://byteballng.slack.com" target="_blank">byteball-ng 讨论组</a>，
+    提出你的问题。
   </p>
 
 
   <section data-folding="read-more">
-    <h2 id="read-more" class="page-header">如何设置「阅读全文」？</h2>
+    <h2 id="read-more" class="page-header">什么是「DAG」技术，与传统的区块链技术有何区别？</h2>
     <p>
-      在首页显示一篇文章的部分内容，并提供一个链接跳转到全文页面是一个常见的需求。
-      NexT 提供三种方式来控制文章在首页的显示方式。
-      也就是说，在首页显示文章的摘录并显示 <strong>阅读全文</strong> 按钮，可以通过以下方法：
+       传统的主流区块链如比特币、以太坊技术均基于块状链实现： 他们在底层结构采用的是区块+链的数据结构。这种结构有一些先天性的局限。比如，这种结构会有一个类中心化的动作——“打包区块”，整个区块链在任意时刻，都是由记账者单点写入，记账者通过全网POW共识机制，算出nonce随机数并获得区块写入权力，并得挖矿奖励. 这种单点写入区块链的局限性：无法处理高并发请求；同时，区块链的吞吐量，也受制于区块的大小，如果区块太小，交易量大的话，很多交易无法打包进区块。如果区块太大，整个区块链系统，数据量将迅速膨胀，普通用户将无法运行全节点，将会造成中心化的问题。目前比特币扩容之争的其根本矛盾点就在于此。这是区块+链式结构先天性的悖论问题。
+    </p>
+    <p>
+      而<strong>DAG</strong> 技术是区块链的跃迁，简单类比可以说是并发多线程的区块链。把区块链从一维单点写入跃迁到了三维全网并行工作空间，从独木桥变成了高速公路网，每秒交易理论上可达亿级。
+
+      Byteball-NG系统特性如下：
     </p>
     <ol>
       <li>
-        在文章中使用 <code>&lt;!-- more --&gt;</code> 手动进行截断，Hexo 提供的方式
-        <span class="label label-success">推荐</span>
+        更彻底去中心化      
+        传统的区块+链式结构，需要有一个类中心化的操作，即需要挖矿竞争记账资格，成功出块的矿工将获得奖励，并将当前所有交易验证打包到一个区块，然后发布到网络。而Byteball-NG系统，采用的是单元+DAG结构，没有区块这一概念。所有单元由用户自己创建与发布。其验证与确认由引用其作为先辈单元的后辈单元来承担，可全网节点并发记录自己单元数据，因而是一种更彻底的去中心化系统。
       </li>
       <li>
-        在文章的 <a href="https://hexo.io/docs/front-matter.html" target="_blank" rel="external">front-matter</a>
-        中添加 <code>description</code>，并提供文章摘录
+        没区块扩容与数据膨用的悖论性两难   
+        传统区块+链式结构，所有交易要打包到区块才有效。那么区块的容量设置小，则交易量大时，很多交易无法及时打包进区块。如果区块容量设置大，则会使网络传输缓慢、区块链数据迅速膨胀，超出单节点处理能力。这也是比特币扩容之争的根本矛盾点。如上所述，Byteball-NG没有区块这一概，所以对于传统区块+链式结构先天性的悖论两难问题。
+
       </li>
       <li>
-        <p>自动形成摘要，在 <span class="label label-info">主题配置文件</span> 中添加：</p>
-<pre><code class="yml hljs"><span class="hljs-attr">auto_excerpt:</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  length:</span> <span class="hljs-number">150</span>
-</code></pre>        <p>默认截取的长度为 <code>150</code> 字符，可以根据需要自行设定</p>
+      可选交易确认速度   
+      Byteball-NG的交易单元，只要通过见证人发布的见证单元验证确认，即具最终性。Byteball-NG通过见证单元系列机制，灵活调整交易确认时间，在速度和见证单元数据比
       </li>
+      <li>
+      无吞吐量瓶颈   
+      因为传统区块+链式结构存在着，需要记账人将交易打包到区块，这一中心化的操作过程。那么区块链系统处理交易能力的大小，必定受制于以下三点，1，记账人节点机器的性能。2,记账人节点的网络带宽，3，区块的大小。因为存在这一中心化色彩的操作，无论怎样优化，始终都会存在着一个处理能力的瓶颈点。Byteball-NG系统，采用的是单元+DAG结构，没有记账人打包区块这一中心化的操作，单元由用户创建发布，并由其它单元验证确认。因而不存在吞吐量瓶颈。
+      </li>
+      <li>
+      明确可预期的最终性 
+      传统区块+链式结构，不排除可能同时产生两个甚至多个区块，由此导至分叉。对于出现分叉的情况，传统区块链将以最长链做为有效链。这种机制在理论上会无法确定最终性，因为无法保证，是否存在一条隐藏长链。而Byteball-NG通过见证人机制，只要通过见证人发布的见证单元验证确认，即具最终性，无法推翻
+      </li>
+
     </ol>
-    <div class="bs-callout bs-callout-info">
-      建议使用 <code>&lt;!-- more --&gt;</code>（即第一种方式），除了可以精确控制需要显示的摘录内容以外，
-      这种方式也可以让 Hexo 中的插件更好的识别。
-    </div>
+
   </section>
 
 
   <section data-folding="favicon">
-    <h2 id="favicon" class="page-header">Favicon 设置后没有生效？</h2>
+    <h2 id="favicon" class="page-header">DAG技术的历史和实现</h2>
     <p>
-      将你的 <code>favicon</code> 放置到 <strong>站点</strong> 的 <code>source</code>
-      目录下，与站点的配置文件同级。
-      若你发现设置的 Favicon 并未生效，请先清除浏览器的缓存后直接访问 Favicon 的地址，这个地址通常是
-      <code>http://your-domain.com/favicon.ico</code>。
+      DAG 架构最早理论阐述是DagCoin，后由 IOTA 团队率先实现基于“Tangle机制” 的服务于物联网（IoT）生态系统的去中心化加密货币，之后Byteball 借鉴 IOTA 的 DAG 实现，并加以改进创建了字节雪球去中心化加密货币。
+
     </p>
-    <p class="bs-callout bs-callout-warning">
-      如果你的站点是放在子目录下，请设置为：<code>favicon: favicon.ico</code>
+    <p>
+      在 IOTA 中，要验证新的交易前，必须直接验证之前的两个交易，这也使得在这两个交易之前所有被验证过的交易得到间接验证。在 DAG中，顶点代表交易，带箭头的线代表交易的验证关系。在 IOTA 中，有一个权重积分的概念，所谓权重积分是指它自身的权重与它验证过的所有交易的自身权重之和。在 DAG 结构中，交易总是自己创建并发布。从理论上看,攻击者总是可以建构比 它要推翻掉的那个交易权重更高的交易用以双花。
+
+    </p>
+    <p>
+      Byteball 在 IOTA 的基础上, 创新性引入主链与见证人概念，鼓励验证多个父辈交易单元，形成一个随着交易增长，相互验证安全性不断加强的HashGraph。
     </p>
   </section>
 
 
   <section data-folding="custom-font">
-    <h2 id="custom-font" class="page-header">如何更改字体？</h2>
+    <h2 id="custom-font" class="page-header">IOTA 与 BYTABALL 各自的特色和优缺点？</h2>
     <p>
-      NexT 从 <strong>5.0.1</strong> 版本开始提供一个 <a href="/theme-settings.html#fonts-customization">字体定制特性</a>，
-      请先查看此特性是否能满足你的需求。以下的修改将覆盖 字体定制 的特性。
-      编辑主题下的 <code>source/css/_variables/custom.styl</code> 文件，新增两个变量：
+      Byteball和IOTA都使用了创新的新技术，有向无环图（Directed Acyclic Graph），除了加密货币所有的优点之外，两者都使用的底层DAG技术是具有巨大优势的技术，当数据量变大时，可以解决传统的区块链面临如扩容和速度等诸多问题。
     </p>
-<pre><code class="styl hljs"><span class="hljs-comment">// 标题，修改成你期望的字体族</span>
-<span class="hljs-variable">$font</span>-family-headings = Georgia, sans
+<pre><code class="styl hljs">
+<span class="hljs-comment">// Byteball 特色一句话</span>
+<span class="hljs-variable">Byteball的独一无二是他的主链的概念，安全的智能合约，还有其内置的隐秘资产，用黑球（Blackbyte）可以进行创新的匿名交易。</span>
 
-<span class="hljs-comment">// 修改成你期望的字体族</span>
-<span class="hljs-variable">$font</span>-family-base = <span class="hljs-string">"Microsoft YaHei"</span>, Verdana, sans-serif
+<span class="hljs-comment">// IOTA 特色一句话</span>
+<span class="hljs-variable">IOTA的独特功能毫无疑问是零交易费。因此，在全球范围内适合作为物联网骨干技术的就是IOTA。</span>
 
-<span class="hljs-comment">// 代码字体</span>
-<span class="hljs-variable">$code</span>-<span class="hljs-attribute">font-family</span> = <span class="hljs-string">"Input Mono"</span>, <span class="hljs-string">"PT Mono"</span>, Consolas, Monaco, Menlo, monospace
+</code></pre>
 
-<span class="hljs-comment">// 正文字体的大小</span>
-<span class="hljs-variable">$font</span>-size-base = <span class="hljs-number">16px</span>
+<p>
+  Byteball提出了创新的“主链”概念，也就是经过见证人认定的最短路径MC的Parents优选算法。主链创造了一个全网共识确定的交易时间序列，优雅的避免了双花问题。
+</p>
+<p>
 
-<span class="hljs-comment">// 代码字体的大小</span>
-<span class="hljs-variable">$code</span>-<span class="hljs-attribute">font-size</span> = <span class="hljs-number">13px</span>
-</code></pre>  </section>
+  Byteball的“见证人”(Witness) 一直是个让人迷惑的概念，以至于HCASH初版白皮书中曾讲述由于不能确切了解Byteball算法有效性，而部分采用了其他算法。Byteball网络中“见证人”真正意义就是“共识机制”本身；12个“见证人”发布的交易单元，在理论上无限宽广的DAG并发交易网络中划出了一道确定性的交易时间序列。正是这道无限延伸基于时间的确定性交易序列，打造了Byteball中的主链，在宽广无序的有向无环哈希世界中形成了强健有序的唯一主干。基于见证人+主链的共识机制，双重支付等问题得到了轻松解决。
+
+</p>
+<p>
+  Byteball中由于主链算法和见证人发布频率有关系，交易确认的时间是不确定的。同时由于Byteball 选择基于关系数据库来存储数据，SQL语言紧耦合算法逻辑。 在一定程度上限制了Byteball的实际扩展能力和速度。
+
+</p>
+</section>
 
 
   <section data-folding="custom-content-width">
-    <h2 id="custom-content-width" class="page-header">如何更改内容区域的宽度？</h2>
-    <p>NexT 对于内容的宽度的设定如下：</p>
-    <ul>
-      <li>700px，当屏幕宽度 < 1600px </li>
-      <li>900px，当屏幕宽度 >= 1600px</li>
-      <li>移动设备下，宽度自适应</li>
-    </ul>
-    <p>
-      如果你需要修改内容的宽度，同样需要编辑样式文件。
-      编辑主题的 <code>source/css/_variables/custom.styl</code> 文件，新增变量：
-    </p>
-<pre><code class="styl hljs"><span class="hljs-comment">// 修改成你期望的宽度</span>
-<span class="hljs-variable">$content</span>-desktop = <span class="hljs-number">700px</span>
+    <h2 id="custom-content-width" class="page-header">什么是 Byteball-NG</h2>
+    <p>Byteball-NG（中文名壹金链）目标是打造新一代DAG区块链：</p>
 
-<span class="hljs-comment">// 当视窗超过 1600px 后的宽度</span>
-<span class="hljs-variable">$content</span>-desktop-large = <span class="hljs-number">900px</span>
-</code></pre>    <p class="bs-callout bs-callout-warning">
-      此方法不适用于 Pisces Scheme，关于如何修改 Pisces Scheme 的宽度请参看
-      <a href="https://github.com/iissnan/hexo-theme-next/issues/759#issuecomment-202242848">这个 Issue</a>
+    <p>
+      Byteball-NG实现原型参考字节雪球，并在此基础上做了进一步的必要的、革新性改进，因此命名Byteball-NG， 同时Byteball-NG团队将携手byteball 基金会，共同推进第三代DAG区块链取得商用化突破进展。推进第三代DLT技术快速发展
+
+    </p>
+    <p class="bs-callout bs-callout-warning">
+      我们打造Byteball-NG作为底层医疗公有区块链，不仅仅是一个区块链，而是医疗生态的金融科技支持平台，将持续的构筑去中心化的各类医疗金融科技、医疗服务去中心化应用，为医疗大健康行业服务。
+
     </p>
   </section>
 
   <section data-fodling="setting-menu">
-    <h2 id="setting-menu" class="page-header">为何新增的菜单项显示 Menu.xxx</h2>
-    <p>
-      NexT 使用了 Hexo 提供的国际化功能，因此在 Menu 部分配置的值并非直接用于界面的展示，而是作为一个名称。
-      当渲染的时候，NexT 去寻找对应的语言文件，并替换这个键所定义的文本后展示。
-    </p>
+    <h2 id="setting-menu" class="page-header">Byteball-NG 的区块链发展路线图</h2>
 
-    <p>
-      以 <code>home</code> 为例，在
-      <span class="label label-info">主题配置文件</span> 中配置为 <code>home: /</code>，
-      此处的键即是 <code>home</code>，在不同的语言中，这个键所对应的文本都不同：
-    </p>
-<pre><code class="yml hljs"><span class="hljs-comment"># 简体中文</span>
-<span class="hljs-comment"># 语言文件 languages/zh-Hans.yml</span>
-<span class="hljs-attr">menu:</span>
-<span class="hljs-attr">  home:</span> <span class="hljs-string">首页</span>
-
-<span class="hljs-comment"># 英文</span>
-<span class="hljs-comment"># 语言文件 languages/en.yml</span>
-<span class="hljs-attr">menu:</span>
-<span class="hljs-attr">  home:</span> <span class="hljs-string">Home</span>
-</code></pre>
-    <p>因此，当新增一个项时，必须在 <strong>所使用的语言</strong> 中添加对应的翻译文本。</p>
 
     <p class="bs-callout bs-callout-success">
-      关于菜单的配置，请参考 <a href="/getting-started.html#menu-settings">菜单的配置</a>
+      Byteball-NG（缩写BNG） 作为 DAG（Blockless）架构的第三代分布式账本技术，制定了坚实发展路线图：
     </p>
-  </section>
 
-  <section data-folding="count-incorrect-for-tags-categories">
-    <h2 id="count-incorrect-for-tags-categories">标签/分类数量统计不准确？</h2>
-    <p>
-      因为 Hexo 有缓存的功能，因此有时候你会发现在 标签 和 分类 页面中的数量统计并不准确。
-      出现这个问题时，可以按照以下步骤重新生成站点的内容：
-    </p>
-    <ol>
-      <li>删除站点目录下的 <code>db.json</code> 文件</li>
-      <li>在站点目录下执行命令 <code>hexo clean</code></li>
-      <li>在站点目录下执行命令，重新生成 <code>hexo generate</code></li>
-    </ol>
-    <p>当执行完以上步骤后，可以在本地启动服务器来验证下是否已经解决问题。</p>
-  </section>
-
-
-  <section data-fodling="incorrect-language">
-    <h2 id="incorrect-language" class="page-header">为何语言显示不正确？</h2>
-    <p>
-      若没有设定 <code>language</code> 的值或者 <code>language: default</code>，会出现语言选择不正确的情况。
-      因此为了确保语言正确显示，请明确指定需要使用的语言。
-      编辑 <span class="label label-primary">站点配置文件</span>， 将 <code>language</code> 字段设置成明确的语言代码。
-      例如，设置语言为简体中文：
-    </p>
-<pre><code class="yml hljs"><span class="hljs-attr">language:</span> <span class="hljs-string">zh-Hans</span></code></pre>    <table class="table table-bordered">
-      <thead>
-      <tr>
-        <th>语言</th>
-        <th>对应值</th>
-      </tr>
-      </thead>
-      <tr>
-        <td>English</td>
-        <td><code>en</code></td>
-      </tr>
-      <tr>
-        <td>简体中文</td>
-        <td><code>zh-Hans</code></td>
-      </tr>
-      <tr>
-        <td>法语</td>
-        <td><code>fr-FR</code></td>
-      </tr>
-      <tr>
-        <td>繁体中文</td>
-        <td><code>zh-hk</code>/<code>zh-tw</code></td>
-      </tr>
-      <tr>
-        <td>俄语</td>
-        <td><code>ru</code></td>
-      </tr>
-      <tr>
-        <td>德语</td>
-        <td><code>de</code></td>
-      </tr>
-      <tr>
-        <td>葡萄牙语</td>
-        <td><code>pt</code></td>
-      </tr>
-      <tr>
-        <td>日语</td>
-        <td><code>ja</code></td>
-      </tr>
-    </table>
-  </section>
-
-
-  <section data-fodling="incorrect-language">
-    <h2 id="setting-page-comments" class="page-header">如何关闭新建页面的评论功能？</h2>
-    <p>
-      当集成了评论系统，如 Disqus，所有新建的页面都将自动开启评论。若你不需要评论，请在页面的 Front-matter 里添加
-      <code>comments</code> 字段，并将值设置为 <code>false</code>。如下所示：
-    </p>
-<pre><code class="md hljs">title: All tags
-date: 2015-12-16 17:05:24
-type: "tags"
-<span class="hljs-section">comments: false
----</span>
-</code></pre>  </section>
-
-
-  <section data-fodling="incorrect-language">
-    <h2 id="setting-page-size" class="page-header">如何设置页面文章的篇数？</h2>
-    <p>在 Hexo 里可以为首页和归档页面设置不同的文章篇数，但可能需要安装 Hexo 插件。详细步骤如下。</p>
     <ol>
       <li>
-        <p>使用 <code>npm install --save</code> 命令来安装需要的 Hexo 插件。</p>
-<pre><code class="sql hljs">npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save hexo-generator-index</span>
-npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save hexo-generator-archive</span>
-npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save hexo-generator-tag</span>
-</code></pre>      </li>
+        超级节点：全数据节点（例如Witnesses见证人节点），增添SuperNode超级节点支持，引入分布式SQL数据引擎，在存储容量上达到PB级别，在计算能力上支持同步扩展，在速度上通过多实例计算资源和SQL表达式下推优化，成级数提升处理速度 （基于DAG技术，客户端无需像比特币轻客户端那样存储全部交易的Merkle Root块头链，只需存储相关交易单元，具备极好的扩展性）
+
+      </li>
       <li>
-        <p>等待扩展全部安装完成后，在 <strong>站点配置文章</strong> 中，设定如下选项：</p>
-<pre><code class="yml hljs"><span class="hljs-attr">index_generator:</span>
-<span class="hljs-attr">  per_page:</span> <span class="hljs-number">5</span>
+        对于轻节点， 引入下推解析算法优化，提升轻节点处理速度；提升DAG区块链的容量与速度扩展问题，实现BNG商用化处理和系统能力
+      </li>
+      <li>
+        分离共识层、逻辑层与数据层， 改造现有的紧耦合底层架构，提升系统架构的扩展能力。
 
-<span class="hljs-attr">archive_generator:</span>
-<span class="hljs-attr">  per_page:</span> <span class="hljs-number">20</span>
-<span class="hljs-attr">  yearly:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  monthly:</span> <span class="hljs-literal">true</span>
+      </li>
+      <li>
+        增加“Instant Transaction”闪电支付类型，用于小额支付及时成交。
+      </li>
+      <li>
+       引入抗量子计算密码 ，并实现够抵抗量子计算机攻击的密码体制。此类加密技术的开发采取传统方式,即基于特定数学领域的困难问题, 通过研究开发算法使其在网络通信中得到应用,从而实现保护数据安全的目的。
 
-<span class="hljs-attr">tag_generator:</span>
-<span class="hljs-attr">  per_page:</span> <span class="hljs-number">10</span>
-</code></pre>
-        <code>per_page</code> 即文章的数量。
+      </li>
+      <li>
+       除了原生的强大安全的“可定义合约”，在逻辑层，BNG将基于Chrome V8引擎、引入webassembly技术，打造全新的“图灵完备的智能合约”，实现BNG安全完备的可编程商业智能基础
+
+      </li>
+
+      <li>
+      在共识层， 设计部署“sharding-分片”机制，结合见证人同步和路由机制，彻底解决区块链的扩展和容量问题；设计引入Hash Universe 跨链交易机制，通过HU来实现跨链交易（完全兼容Byteball）并通过HU来实现Byteball、IOTA等基于DAG链条的跨链交易（后继增加bitcoin, etherum跨链交易），从跨链角度解决互通和数据扩展问题
+
+      </li>
+      <li>
+      BNG将推出企业版EBB特性选项，取消Byte交易费，EBB 将成为免交易费的企业优化DAG DLT，增加Witness许可机制和身份认证机制， 使其更适用于企业/商业机构应用要求
+      </li>
+      <li>
+      BNG将定制一系列基础就绪的本地化链上应用服务， 包括KYC 、Exchanges、Oracles等等；
       </li>
     </ol>
-    <p class="bs-callout bs-callout-warning">
-      需要注意的是，Hexo 3.2 版本不允许配置文件中存在重复的选项设置。
-      因此，最好检查下 <span class="label label-primary">站点配置文件</span> 中是否有存在上述同名的配置。
-      如果存在，请将两者配置在一起。
-    </p>
-  </section>
 
 
-  <section data-fodling="incorrect-language">
-    <h2 id="optimize" class="page-header">如何优化 NexT 主题？</h2>
-    <p>
-      NexT 并未对 HTML、JavaScript 以及 CSS 做压缩处理。如果你比较在意这点，可以在 NexT 的 Issues 列表搜索
-      <a href="https://github.com/iissnan/hexo-theme-next/issues?utf8=%E2%9C%93&q=+label%3AOptimization">
-        他人共享的优化方案
-      </a>。
-    </p>
-  </section>
 
-  <section data-fodling="module-not-found">
-    <h2 id="module-not-found" class="page-header">Cannot find module XXX</h2>
-    <p>
-      NexT 提供的标签插件引用了 Hexo 模块中的一些子模块，例如 <code>hexo-util</code>。
-      NPM 在版本 3 中引入了新的模块安装机制， NexT 将使用这种机制，意味着如果是旧的 NPM 将会碰到这个错误。
-      因此，如果您碰到 "Cannot find module XXX" 的错误时，请首先使用 <code>npm -v</code> 确认您的 NPM 版本。
-    </p>
-    <ul>
-      <li>版本 > 3 依然报错： 请先删除 <code>node_module</code> 目录，然后使用 <code>npm install</code> 重新安装一下模块。</li>
-      <li>
-        版本 < 3： 您可以选择升级您的 NPM； 或者在站点目录下明确指定模块依赖 <code>npm install --save hexo-util</code>。
-        其中 `hexo-util` 仅是示例，请替换成错误中提示的模块名称。
-      </li>
-    </ul>
   </section>
 
 
           <div class="text-center next-docs-section-footer">
-            <a href="https://github.com/iissnan/theme-next-docs/issues"
+            <a href="https://byteballng.slack.com/"
                target="_blank" class="next-docs-btn next-docs-btn-default">
-              <i class="fa fa-bug"></i> 文档问题反馈
+              <i class="fa fa-bug"></i> 问题反馈
             </a>
             <a href="#top" class="back-to-top next-docs-btn next-docs-btn-default">
               <i class="fa fa-arrow-up"></i> 返回顶部
@@ -339,17 +224,11 @@ npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save 
           <nav class="next-docs-sidebar nav">
             <div class="nav">
   <ul>
-    <li><a href="#read-more">如何设置「阅读全文」？</a></li>
-    <li><a href="#favicon">Favicon 设置后没有生效？</a></li>
-    <li><a href="#custom-font">如何更改字体？</a></li>
-    <li><a href="#custom-content-width">如何更改内容区域的宽度？</a></li>
-    <li><a href="#setting-menu">为何新增的菜单项显示 Menu.xxx</a></li>
-    <li><a href="#count-incorrect-for-tags-categories">标签/分类数量统计不准确？</a></li>
-    <li><a href="#incorrect-language">为何语言显示不正确？</a></li>
-    <li><a href="#setting-page-comments">如何关闭新建页面的评论功能？</a></li>
-    <li><a href="#setting-page-size">如何设置页面文章的篇数？</a></li>
-    <li><a href="#optimize">如何优化 NexT 主题？</a></li>
-    <li><a href="#module-not-found">Cannot find module</a></li>
+    <li><a href="#read-more">什么是「DAG」技术，与传统的区块链技术有何区别？</a></li>
+    <li><a href="#favicon">DAG技术的历史和实现？</a></li>
+    <li><a href="#custom-font">IOTA 与 BYTABALL 各自的特色和优缺点？</a></li>
+    <li><a href="#custom-content-width">Byteball-NG 是什么？ </a></li>
+    <li><a href="#setting-menu">Byteball-NG 的区块链发展路线图？</a></li>
   </ul>
             </div>
 
@@ -367,12 +246,12 @@ npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save 
   <div class="container">
     <hr>
     <p class="pull-right text-muted next-maker">
-      &copy; Made by <a href="https://github.com/iissnan" target="_blank">IIssNan</a>
+     联系方式 : max@outman.com</a>
     </p>
     <div>
       <ul class="next-docs-footer-links">
-        <li><a href="https://github.com/iissnan/theme-next-docs/issues">文档问题反馈</a></li>
-        <li><a href="https://github.com/iissnan/theme-next-docs">文档 @ GitHub</a></li>
+        <li><a href="https://github.com/iamliqiang/1fintech/issues">问题反馈</a></li>
+        <li><a href="https://byteballng.slack.com/">讨论组 @ Slack</a></li>
       </ul>
     </div>
   </div>
